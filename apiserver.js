@@ -79,7 +79,7 @@ function returnFileList(response, query, path, relativePath){
 		var arr = [];
 		for (var f in files){
 			if (files[f].indexOf('.') != -1){
-				arr.push(relativePath+files[f]);
+				arr.push(relativePath+'/'+files[f]);
 			} 
 		}
 		response.write(query.callback+'('+JSON.stringify(arr)+')');
