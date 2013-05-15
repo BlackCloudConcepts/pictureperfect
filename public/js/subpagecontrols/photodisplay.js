@@ -6,18 +6,29 @@ underpin.subpagecontrols.photodisplay = $.klass(underpin.subpagecontrols.base, {
 
 	load : function(){
 		this.getContainer();
+	},
+
+	render : function(path){
+		var _this = this;
 		var request = {};
 		request.parameters = {
-			'type' 		: 'folders',
-			'path' 		: ''
+			'type' 		: 'files',
+			'path' 		: path
 		};
 		request.callback = function(data){
-			console.log(data);
+			_this.renderPhotos(data);
 		};
 		request.failcallback = function(data){
 			console.log(data);
 		};
 		this.sendRequest(request);
+	},
+
+	renderPhotos : function(data){
+		this.require_template('photodisplay-template');
+		var template = _.template($('#photodisplay-template').html(), {mydata: data});
+                this.container.html(template);
+
 
 	},
 

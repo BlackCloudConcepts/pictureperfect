@@ -50,10 +50,10 @@ if (cluster.isMaster) {
 			var query = url_parts.query;
 			switch (query.type){
 				case 'folders' :
-					returnFolderList(response, query, path.join(process.cwd(), 'public/images/'+query.path));
+					returnFolderList(response, query, path.join(process.cwd(), 'public/photos/'+query.path));
 					break;
 				case 'files' : 
-					returnFileList(response, query, path.join(process.cwd(), 'public/images/'+query.path));
+					returnFileList(response, query, path.join(process.cwd(), 'public/photos/'+query.path), '/photos/'+query.path);
 					break;
 			};
 		});
@@ -74,12 +74,12 @@ function returnFolderList(response, query, path){
 	});
 }
 
-function returnFileList(response, query, path){
+function returnFileList(response, query, path, relativePath){
 	fs.readdir(path, function(err, files){
 		var arr = [];
 		for (var f in files){
 			if (files[f].indexOf('.') != -1){
-				arr.push(files[f]);
+				arr.push(relativePath+files[f]);
 			} 
 		}
 		response.write(query.callback+'('+JSON.stringify(arr)+')');

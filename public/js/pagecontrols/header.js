@@ -12,12 +12,6 @@ underpin.pagecontrols.header = $.klass(underpin.pagecontrols.base, {
 		
 		var template = _.template($('#header-template').html());
                 this.container.html(template);
-
-		$('#mainlink').bind('click', function(){ _this.parameters.switchMain('main'); });
-                $('#sectiononelink').bind('click', function(){ _this.parameters.switchMain('sectionone'); });
-                $('#sectiontwolink').bind('click', function(){ _this.parameters.switchMain('sectiontwo'); });
-                $('#infolink').bind('click', function(){ _this.parameters.switchMain('info'); });
-                $('#sectiondatalink').bind('click', function(){ _this.parameters.switchMain('sectiondata'); });
 	},
 
 	unload : function(){

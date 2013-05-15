@@ -6,9 +6,11 @@ underpin.pagecontrols.main = $.klass(underpin.pagecontrols.base, {
 
 	load : function(){
 		this.getContainer();
-		new underpin.subpagecontrols.photodisplay({
+		this.spcPhotoDisplay = new underpin.subpagecontrols.photodisplay({
 			'container' : this.container
-		}).load();
+		});
+		this.spcPhotoDisplay.load();
+		this.spcPhotoDisplay.render('');
 	},
 
 	unload : function(){

@@ -17,12 +17,22 @@ underpin.controller = $.klass(underpin.base, {
 		this.pcMain = new underpin.pagecontrols.main({
 			'container' : this.parameters.divMain
 		});
+		this.pcFolderNavigation = new underpin.pagecontrols.foldernavigation({
+			'container' : this.parameters.divFolderNavigation,
+			'selectFolder' : function(folder){ _this.selectFolder(folder); }
+		});
+		this.pcSubFolderNavigation = new underpin.pagecontrols.subfoldernavigation({
+			'container' : this.parameters.divSubFolderNavigation,
+			'selectSubFolder' : function(folder){ _this.selectSubFolder(folder); }
+		});
 		this.pcFooter = new underpin.pagecontrols.footer({
 			'container' : this.parameters.divFooter
 		});
 
 		// load initial sections
 		this.pcHeader.load();
+		this.pcFolderNavigation.load();
+		this.pcSubFolderNavigation.load();
 		this.pcFooter.load();
 		this.liveMain = undefined;
 
@@ -43,6 +53,14 @@ underpin.controller = $.klass(underpin.base, {
 
 		Backbone.history.start();
 
+	},
+
+	selectFolder : function(folder){
+		this.pcSubFolderNavigation.render(folder);
+	},
+
+	selectSubFolder : function(folder){
+		this.pcMain.spcPhotoDisplay.render(folder);
 	},
 
 	switchMain : function(page){
