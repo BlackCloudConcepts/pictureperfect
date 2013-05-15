@@ -1,0 +1,6 @@
+<div class="grid_16" style="font-size:10pt;">
+<% for(var item in mydata) { %>
+        <div class="grid_4"><%= mydata[item].name %></div>
+        <div class="grid_8"><a href="<%= mydata[item].url %>" target="_blank"><%= mydata[item].url %></a></div>
+<% } %>
+</div>

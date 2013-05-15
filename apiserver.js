@@ -50,10 +50,10 @@ if (cluster.isMaster) {
 			var query = url_parts.query;
 			switch (query.type){
 				case 'folders' :
-					returnFolderList(response, path.join(process.cwd(), 'public/images/'+query.path));
+					returnFolderList(response, query, path.join(process.cwd(), 'public/images/'+query.path));
 					break;
 				case 'files' : 
-					returnFileList(response, path.join(process.cwd(), 'public/images/'+query.path));
+					returnFileList(response, query, path.join(process.cwd(), 'public/images/'+query.path));
 					break;
 			};
 		});
@@ -61,7 +61,7 @@ if (cluster.isMaster) {
   	server.listen(PORT);
 }
 
-function returnFolderList(response, path){
+function returnFolderList(response, query, path){
 	fs.readdir(path, function(err, files){
 		var arr = [];
 		for (var f in files){
@@ -69,12 +69,12 @@ function returnFolderList(response, path){
 				arr.push(files[f]);
 			} 
 		}
-		response.write(JSON.stringify(arr));
+		response.write(query.callback+'('+JSON.stringify(arr)+')');
 		response.end();
 	});
 }
 
-function returnFileList(response, path){
+function returnFileList(response, query, path){
 	fs.readdir(path, function(err, files){
 		var arr = [];
 		for (var f in files){
@@ -82,7 +82,7 @@ function returnFileList(response, path){
 				arr.push(files[f]);
 			} 
 		}
-		response.write(JSON.stringify(arr));
+		response.write(query.callback+'('+JSON.stringify(arr)+')');
 		response.end();
 	});
 }

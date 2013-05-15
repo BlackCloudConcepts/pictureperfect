@@ -1,1 +1,48 @@
-hello
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Underpin Javascript Structured Framework</title>
+
+        <!-- EXTRA REQUIRED FILES -->
+        <!-- req all controls -->
+        <script src="/js/libraries/jquery.min.js"></script>
+	<script src="/js/libraries/underscore-min.js"></script>
+        <script src="/js/libraries/lowpro.jquery.js"></script>
+	<script src="/js/libraries/backbone-min.js"></script>
+
+	<link rel="stylesheet" href="/css/libraries/960.css" />
+
+        <!-- UNDERPIN FILES -->
+	<script src="/js/base.js"></script>
+	<script src="/js/controller.js"></script>
+	<script src="/js/pagecontrols/base.js"></script>
+	<script src="/js/pagecontrols/header.js"></script>
+	<script src="/js/pagecontrols/main.js"></script>
+	<script src="/js/pagecontrols/footer.js"></script>
+	<script src="/js/subpagecontrols/base.js"></script>
+	<script src="/js/subpagecontrols/photodisplay.js"></script>
+	<link rel="stylesheet" href="/css/demo.css" />	
+	<link rel="stylesheet" href="/css/subpagecontrols/photodisplay.css" />	
+
+</head>
+<body>
+	<div id="parentcontainer" class="container_16 parentcontainer">
+		<div id="header" class="container_16"></div>
+		<div id="main" class="container_16"></div>
+		<div id="footer" class="container_16"></div>
+	</div>
+</body>
+</html>
+
+<script language="javascript">
+$(document).ready(function(){
+	// load underpin controller
+	new underpin.controller({
+		'divHeader' 	: $('#header'),
+		'divMain' 	: $('#main'),
+		'divFooter'	: $('#footer')
+	});
+
+
+});
+</script>
