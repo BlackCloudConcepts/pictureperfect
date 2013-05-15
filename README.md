@@ -18,3 +18,4 @@ Level 3
 - 201303CAL-001-JES_WIL_MIK-Beach.jpg
 - YYYYMMEEE-CCC-PPP_PPP_PPP-DESC.jpg (broken into 4 segments ... folder, counter (to keep images in order), initials of people in photo, anything else about the photo (app will ignore it)
 
+
