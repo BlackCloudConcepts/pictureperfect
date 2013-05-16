@@ -62,10 +62,12 @@ underpin.controller = $.klass(underpin.base, {
 
 	selectSubFolder : function(folder){
 		this.pcMain.spcPhotoDisplay.render(folder);
+		this.pcFolderNavigation.clearInput('all');
 	},
 
 	searchResults : function(data){
 		this.pcMain.spcPhotoDisplay.renderPhotos(data);
+		this.pcSubFolderNavigation.clear();
 	},
 
 	switchMain : function(page){

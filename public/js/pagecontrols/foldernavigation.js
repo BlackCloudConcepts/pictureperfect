@@ -59,7 +59,7 @@ underpin.pagecontrols.foldernavigation = $.klass(underpin.pagecontrols.base, {
                         if (evt.charCode && keyCode == 0)
                                 keyCode = evt.charCode;
                         if (keyCode == 13){
-				_this.doSearch(ctrlTextbox.getValue());
+				_this.doSearch(_this.ctrlTextbox.getValue());
 				_this.clearInput('search');	
 			}
 		});
@@ -89,7 +89,7 @@ underpin.pagecontrols.foldernavigation = $.klass(underpin.pagecontrols.base, {
                 dvFolders.html(template);
 
 		$.each(data, function(key, value){
-			$('#'+value).bind('click', function(){
+			$('#folder'+value).bind('click', function(){
 				_this.parameters.selectFolder(value+'/');	
 			});
 		});
@@ -109,6 +109,11 @@ underpin.pagecontrols.foldernavigation = $.klass(underpin.pagecontrols.base, {
 				this.ctrlTextbox.setValue('');
 				this.ctrlDropdownPeople.clearValue();
 				break;
+			default :
+				this.ctrlTextbox.setValue('');
+				this.ctrlDropdownPeople.clearValue();
+                                this.ctrlDropdownEvents.clearValue();
+                                break;
 		}
 	},
 

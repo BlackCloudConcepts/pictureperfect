@@ -12,7 +12,7 @@ underpin.pagecontrols.subfoldernavigation = $.klass(underpin.pagecontrols.base, 
 
 	render : function(folder){
 		var _this = this;
-		this.container.html();
+		this.container.html('');
 		var request = {};
                 request.parameters = {
                         'type'          : 'folders',
@@ -24,7 +24,7 @@ underpin.pagecontrols.subfoldernavigation = $.klass(underpin.pagecontrols.base, 
 			_this.container.html(template);
 
 			$.each(data, function(key, value){
-				$('#'+value).bind('click', function(){
+				$('#subfolder'+value).bind('click', function(){
 					_this.parameters.selectSubFolder(folder+value+'/');	
 				});
 			});
@@ -34,6 +34,10 @@ underpin.pagecontrols.subfoldernavigation = $.klass(underpin.pagecontrols.base, 
                 };
                 this.sendRequest(request);
 
+	},
+
+	clear : function(){
+		this.container.html('');
 	},
 
 	unload : function(){
