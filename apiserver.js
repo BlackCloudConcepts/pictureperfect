@@ -127,14 +127,19 @@ function returnFileSearch(response, query, path){
 				var level2files = [];
 				// at this point we have all the level2 folders
 				for (l in level2){
-					fs.readdir(path+'/'+level2[l], function(err, files){
-						for (var f in files){
-							if (files[f].indexOf('.') != -1){
-							       level2files.push(files[f]);
+					// call as a function to save state on the subpath during async file system query
+					var getFiles = function(subpath){
+						var sSubpath = subpath.split('/');
+						fs.readdir(path+'/'+level2[l], function(err, files){
+							for (var f in files){
+								if (files[f].indexOf('.') != -1){
+								       level2files.push('/photos/'+sSubpath[sSubpath.length-2]+'/'+sSubpath[sSubpath.length-1]+'/'+files[f]);
+								}
 							}
-						}
-						level2complete++;
-					});
+							level2complete++;
+						});
+					};
+					getFiles(path+'/'+level2[l]);
 				}
 				
 				var intervalLevel2 = setInterval(function(){
@@ -143,7 +148,8 @@ function returnFileSearch(response, query, path){
 						// now from the files found, return any that match the search criteria
 						var searchFiles = [];
 						for (l2f in level2files){
-							if (level2files[l2f].indexOf(query.str) != -1)
+							var sFiles = level2files[l2f].split('/');
+							if (sFiles[sFiles.length-1].toLowerCase().indexOf(query.str.toLowerCase()) != -1)
 								searchFiles.push(level2files[l2f]);
 						}
 				                response.write(query.callback+'('+JSON.stringify(searchFiles)+')');

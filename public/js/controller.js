@@ -19,7 +19,8 @@ underpin.controller = $.klass(underpin.base, {
 		});
 		this.pcFolderNavigation = new underpin.pagecontrols.foldernavigation({
 			'container' : this.parameters.divFolderNavigation,
-			'selectFolder' : function(folder){ _this.selectFolder(folder); }
+			'selectFolder' : function(folder){ _this.selectFolder(folder); },
+			'searchResults' : function(data){ _this.searchResults(data); }
 		});
 		this.pcSubFolderNavigation = new underpin.pagecontrols.subfoldernavigation({
 			'container' : this.parameters.divSubFolderNavigation,
@@ -61,6 +62,10 @@ underpin.controller = $.klass(underpin.base, {
 
 	selectSubFolder : function(folder){
 		this.pcMain.spcPhotoDisplay.render(folder);
+	},
+
+	searchResults : function(data){
+		this.pcMain.spcPhotoDisplay.renderPhotos(data);
 	},
 
 	switchMain : function(page){

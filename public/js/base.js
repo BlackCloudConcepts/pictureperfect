@@ -20,6 +20,7 @@ underpin.base = $.klass({
 
 		var type = request.parameters.type;
 		var path = request.parameters.path;
+		var str = request.parameters.str;
 		var callback = request.callback;
 		var failcallback = request.failcallback;
 
@@ -28,7 +29,7 @@ underpin.base = $.klass({
 		$.ajax({
 			type: "POST",
 			url: apiURL+"?random=" + this.getRandomNumber()+'&callback=?',
-			data: "type=" + type + "&path=" + path,
+			data: "type=" + type + "&str="+str+"&path=" + path,
 			dataType: "jsonp",
 			success: function(data, status){
 				if (ajaxLoader != undefined)

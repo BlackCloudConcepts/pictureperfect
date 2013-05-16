@@ -28,8 +28,6 @@ underpin.subpagecontrols.photodisplay = $.klass(underpin.subpagecontrols.base, {
 		this.require_template('photodisplay-template');
 		var template = _.template($('#photodisplay-template').html(), {mydata: data});
                 this.container.html(template);
-
-
 	},
 
 	unload : function(){
