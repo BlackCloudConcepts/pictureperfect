@@ -66,7 +66,7 @@ underpin.pagecontrols.foldernavigation = $.klass(underpin.pagecontrols.base, {
 
 		this.ctrlDropdownPeople = new titan.controls.dropdown({
 			'container'	: dvSearchPeople,
-			'data'		: this.peopleData(),
+			'data'		: peopleData,
 			'width'		: 300,
 			'onchange'	: function(item){
 				_this.doSearch(item.value);
@@ -76,7 +76,7 @@ underpin.pagecontrols.foldernavigation = $.klass(underpin.pagecontrols.base, {
 
 		this.ctrlDropdownEvents = new titan.controls.dropdown({
 			'container'	: dvSearchEvents,
-			'data'		: this.eventData(),
+			'data'		: eventData,
 			'width'		: 300,
 			'onchange'	: function(item){
 				_this.doSearch(item.value);
@@ -119,23 +119,6 @@ underpin.pagecontrols.foldernavigation = $.klass(underpin.pagecontrols.base, {
 
 	unload : function(){
 		this.destroyControl();
-	},
-
-	peopleData : function(){
-		return [
-			{'name' : 'Bridgetta Tomarchio', 'value' : 'BT1', 'image' : '/images/person.jpg'},
-			{'name' : 'Gwen Stefani', 'value' : 'GS1', 'image' : '/images/person.jpg'},
-			{'name' : 'Jessica Biel', 'value' : 'JB1', 'image' : '/images/person.jpg'},
-			{'name' : 'Carrie Underwood', 'value' : 'CU1', 'image' : '/images/person.jpg'},
-			{'name' : 'Chelsea Hightower', 'value' : 'CH1', 'image' : '/images/person.jpg'}
-		];
-	},
-
-	eventData : function(){
-		return [
-			{'name' : 'Girls of March 2011', 'value' : '201103GRL', 'image' : '/images/event.png'},
-			{'name' : 'Girls of April 2012', 'value' : '201204GRL', 'image' : '/images/event.png'},
-			{'name' : 'Girls of May 2012', 'value' : '201205GRL', 'image' : '/images/event.png'}
-		]
 	}
+
 });

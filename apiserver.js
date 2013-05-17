@@ -149,7 +149,7 @@ function returnFileSearch(response, query, path){
 						var searchFiles = [];
 						for (l2f in level2files){
 							var sFiles = level2files[l2f].split('/');
-							if (sFiles[sFiles.length-1].toLowerCase().indexOf(query.str.toLowerCase()) != -1)
+							if (sFiles[sFiles.length-1].toLowerCase().split('-')[2].indexOf(query.str.toLowerCase()) != -1)
 								searchFiles.push(level2files[l2f]);
 						}
 				                response.write(query.callback+'('+JSON.stringify(searchFiles)+')');
