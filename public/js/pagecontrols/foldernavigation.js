@@ -42,15 +42,15 @@ underpin.pagecontrols.foldernavigation = $.klass(underpin.pagecontrols.base, {
 	render : function(data){
 		var _this = this;
 	
-		var dvSearch = $('<div>', {'class' : 'grid_16', 'style' : 'margin-bottom:10px;'}).appendTo(this.container);
-		var dvSearchPeople = $('<div>', {'class' : 'grid_16', 'style' : 'margin-bottom:10px;'}).appendTo(this.container);
-		var dvSearchEvents = $('<div>', {'class' : 'grid_16', 'style' : 'margin-bottom:10px;'}).appendTo(this.container);
+		var dvSearch = $('<div>', {'class' : 'grid_4', 'style' : 'margin-bottom:10px;'}).appendTo(this.container);
+		var dvSearchPeople = $('<div>', {'class' : 'grid_6', 'style' : 'margin-bottom:10px;'}).appendTo(this.container);
+		var dvSearchEvents = $('<div>', {'class' : 'grid_6', 'style' : 'margin-bottom:10px;'}).appendTo(this.container);
 		var dvFolders = $('<div>').appendTo(this.container);
 		
 		this.ctrlTextbox = new titan.controls.inputTextbox({
 			'container'		: dvSearch,
-			'placeholder'		: 'Search',
-			'width'			: 300
+			'placeholder'		: 'People Search',
+			'width'			: 200
 		});
 		this.ctrlTextbox.txtbox.keydown(function(evt){
 			if (!evt)
@@ -67,6 +67,7 @@ underpin.pagecontrols.foldernavigation = $.klass(underpin.pagecontrols.base, {
 		this.ctrlDropdownPeople = new titan.controls.dropdown({
 			'container'	: dvSearchPeople,
 			'data'		: peopleData,
+			'placeholder'	: 'Select Person',
 			'width'		: 300,
 			'onchange'	: function(item){
 				_this.doSearch(item.value, 'people');
@@ -77,6 +78,7 @@ underpin.pagecontrols.foldernavigation = $.klass(underpin.pagecontrols.base, {
 		this.ctrlDropdownEvents = new titan.controls.dropdown({
 			'container'	: dvSearchEvents,
 			'data'		: eventData,
+			'placeholder'	: 'Select Event',
 			'width'		: 300,
 			'onchange'	: function(item){
 				_this.doSearch(item.value, 'event');

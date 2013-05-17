@@ -1,0 +1,55 @@
+body { 
+	background-color	: #404F59;
+	margin-top		: 0px;
+	margin-bottom		: 0px;
+	font-family		: 'Unkempt', cursive; 
+}
+
+a { 
+	font-size		: 10pt;
+	color			: #2E96F7;
+	font-weight		: bold;
+	text-decoration		: none; 
+}
+
+h1 { 
+	color			: #0C60AF; 
+}
+
+h3 { 
+	color			: #999999; 
+}
+
+h2 { 
+	color			: #0C60AF;
+	margin-top		: 40px; 
+}
+
+h5 { 
+	color			: #2E96F7; 
+}
+
+.parentcontainer { 
+	margin-right		: auto;
+	margin-left		: auto;
+	background-color	: #ffffff;
+	top			: 0;
+	left			: 0;
+	padding			: 5px 0px 50px 0px;
+	min-height		: 700px; 
+}
+
+.navlink {
+	cursor			: pointer;
+	font-weight		: bold;
+	color			: #2EA2FA;
+	font-size		: 10pt;
+}
+
+.navlinksub {
+	cursor			: pointer;
+	font-weight		: bold;
+	color			: #0B60AF;
+	font-size		: 10pt;
+}
+

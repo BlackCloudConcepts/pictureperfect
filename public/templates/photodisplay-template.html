@@ -1,6 +1,10 @@
-<div class="grid_16" style="font-size:10pt;">
+<hr class="grid_16">
+<div style="font-size:10pt;">
+<% if (mydata.length == 0){ %>
+	<div class="grid_16" style="color:#999999;font-size:10pt;">Please Refine Your Photo Search Above</div>
+<% } %>
 <% for(var item in mydata) { %>
-        <div id="<%= mydata[item] %>" class="grid_2">
+        <div id="<%= mydata[item] %>" class="grid_2" style="margin-bottom:10px;">
 		<img src="<%= mydata[item] %>" height=100 width=100 />
 	</div>
 <% } %>
