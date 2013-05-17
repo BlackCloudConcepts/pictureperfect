@@ -22,11 +22,11 @@ underpin.pagecontrols.foldernavigation = $.klass(underpin.pagecontrols.base, {
                 this.sendRequest(request);
 	},
 
-	doSearch : function(str){
+	doSearch : function(str, type){
 		var _this = this;
 		var request = {};
                 request.parameters = {
-                        'type'          : 'filesearch',
+                        'type'          : 'filesearch'+type,
                         'str'          	: str
                 };
                 request.callback = function(data){
@@ -59,7 +59,7 @@ underpin.pagecontrols.foldernavigation = $.klass(underpin.pagecontrols.base, {
                         if (evt.charCode && keyCode == 0)
                                 keyCode = evt.charCode;
                         if (keyCode == 13){
-				_this.doSearch(_this.ctrlTextbox.getValue());
+				_this.doSearch(_this.ctrlTextbox.getValue(), 'people');
 				_this.clearInput('search');	
 			}
 		});
@@ -69,7 +69,7 @@ underpin.pagecontrols.foldernavigation = $.klass(underpin.pagecontrols.base, {
 			'data'		: peopleData,
 			'width'		: 300,
 			'onchange'	: function(item){
-				_this.doSearch(item.value);
+				_this.doSearch(item.value, 'people');
 				_this.clearInput('people');	
 			}	
 		});
@@ -79,7 +79,7 @@ underpin.pagecontrols.foldernavigation = $.klass(underpin.pagecontrols.base, {
 			'data'		: eventData,
 			'width'		: 300,
 			'onchange'	: function(item){
-				_this.doSearch(item.value);
+				_this.doSearch(item.value, 'event');
 				_this.clearInput('events');	
 			}	
 		});

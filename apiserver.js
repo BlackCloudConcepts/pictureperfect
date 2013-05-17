@@ -52,8 +52,11 @@ if (cluster.isMaster) {
 				case 'folders' :
 					returnFolderList(response, query, path.join(process.cwd(), 'public/photos/'+query.path));
 					break;
-				case 'filesearch' :
-					returnFileSearch(response, query, path.join(process.cwd(), 'public/photos/'));
+				case 'filesearchpeople' :
+					returnFileSearch(response, query, path.join(process.cwd(), 'public/photos/'), 'people');
+					break;
+				case 'filesearchevent' :
+					returnFileSearch(response, query, path.join(process.cwd(), 'public/photos/'), 'event');
 					break;
 				case 'files' : 
 					returnFileList(response, query, path.join(process.cwd(), 'public/photos/'+query.path), '/photos/'+query.path);
@@ -93,7 +96,7 @@ function returnFileList(response, query, path, relativePath){
 }
 
 // type, str, callback
-function returnFileSearch(response, query, path){
+function returnFileSearch(response, query, path, type){
 	var level1complete = 0;
         fs.readdir(path, function(err, files){
                 // get all top level folders
@@ -149,8 +152,13 @@ function returnFileSearch(response, query, path){
 						var searchFiles = [];
 						for (l2f in level2files){
 							var sFiles = level2files[l2f].split('/');
-							if (sFiles[sFiles.length-1].toLowerCase().split('-')[2].indexOf(query.str.toLowerCase()) != -1)
-								searchFiles.push(level2files[l2f]);
+							if (type == 'people'){
+								if (sFiles[sFiles.length-1].toLowerCase().split('-')[2].indexOf(query.str.toLowerCase()) != -1)
+									searchFiles.push(level2files[l2f]);
+							} else if (type == 'event'){
+								if (sFiles[sFiles.length-1].toLowerCase().split('-')[0].indexOf(query.str.toLowerCase()) != -1)
+									searchFiles.push(level2files[l2f]);
+							}
 						}
 				                response.write(query.callback+'('+JSON.stringify(searchFiles)+')');
         				        response.end();	
