@@ -1,5 +1,6 @@
+require('./conf.js');
 var cluster = require('cluster');
-var PORT = +process.env.PORT || 8127;
+var PORT = process.env.webport;
 var http = require("http")
 var url = require("url")
 var path = require("path")

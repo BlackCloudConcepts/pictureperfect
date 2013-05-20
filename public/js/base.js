@@ -24,7 +24,7 @@ underpin.base = $.klass({
 		var callback = request.callback;
 		var failcallback = request.failcallback;
 
-		var apiURL = "http://10.30.3.209:8126";
+		var apiURL = apiurl+":"+apiport;
 
 		$.ajax({
 			type: "POST",
