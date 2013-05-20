@@ -1,6 +1,6 @@
 Picture Perfect
 
-Picture Perfect is a application leveraging Node.js and Underpin Javascript Structured Framework to provide a easy to use and interface to viewing your millions of unorganized digital photographs. 
+Picture Perfect is a application leveraging Node.js, Underpin Javascript Structured Framework, and Titan Javascript Controls to provide a easy to use and interface to viewing your millions of unorganized digital photographs. 
 
 Structure
 Under public there is a folder called photos.  This is where all the photos you want included in your site go.  The ideal organizations is as follows:
