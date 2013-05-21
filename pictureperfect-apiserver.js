@@ -59,6 +59,9 @@ if (cluster.isMaster) {
 				case 'filesearchevent' :
 					returnFileSearch(response, query, path.join(process.cwd(), 'public/photos/'), 'event');
 					break;
+				case 'filesearchboth' :
+					returnFileSearch(response, query, path.join(process.cwd(), 'public/photos/'), 'both');
+                                        break;
 				case 'files' : 
 					returnFileList(response, query, path.join(process.cwd(), 'public/photos/'+query.path), '/photos/'+query.path);
 					break;
@@ -159,6 +162,9 @@ function returnFileSearch(response, query, path, type){
 							} else if (type == 'event'){
 								if (sFiles[sFiles.length-1].toLowerCase().split('-')[0].indexOf(query.str.toLowerCase()) != -1)
 									searchFiles.push(level2files[l2f]);
+							} else if (type == 'both'){
+								if (sFiles[sFiles.length-1].toLowerCase().split('-')[2].indexOf(query.str.toLowerCase()) != -1 || sFiles[sFiles.length-1].toLowerCase().split('-')[0].indexOf(query.str.toLowerCase()) != -1)
+                                                                        searchFiles.push(level2files[l2f]);
 							}
 						}
 				                response.write(query.callback+'('+JSON.stringify(searchFiles)+')');

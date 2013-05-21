@@ -49,7 +49,7 @@ underpin.pagecontrols.foldernavigation = $.klass(underpin.pagecontrols.base, {
 		
 		this.ctrlTextbox = new titan.controls.inputTextbox({
 			'container'		: dvSearch,
-			'placeholder'		: 'People Search',
+			'placeholder'		: 'People / Event Code Search',
 			'width'			: 200
 		});
 		this.ctrlTextbox.txtbox.keydown(function(evt){
@@ -59,7 +59,7 @@ underpin.pagecontrols.foldernavigation = $.klass(underpin.pagecontrols.base, {
                         if (evt.charCode && keyCode == 0)
                                 keyCode = evt.charCode;
                         if (keyCode == 13){
-				_this.doSearch(_this.ctrlTextbox.getValue(), 'people');
+				_this.doSearch(_this.ctrlTextbox.getValue(), 'both');
 				_this.clearInput('search');	
 			}
 		});
