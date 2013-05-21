@@ -1,11 +1,14 @@
 <hr class="grid_16">
-<div style="font-size:10pt;">
-<% if (mydata.length == 0){ %>
-	<div class="grid_16" style="color:#999999;font-size:10pt;">Please Refine Your Photo Search Above</div>
-<% } %>
-<% for(var item in mydata) { %>
-        <div id="<%= mydata[item] %>" class="grid_2" style="margin-bottom:10px;">
-		<img src="<%= mydata[item] %>" height=100 width=100 />
+<div class="photodisplay">
+	<% if (mydata.length == 0){ %>
+		<div class="grid_16 empty">Please Refine Your Photo Search Above</div>
+	<% } %>
+	<div class="grid_16">
+	<% for(var item in mydata) { %>
+		<div id="<%= mydata[item].replace(/\//g, '').replace(/.jpg/g, '').replace(/-/g, '').replace(/.png/g, '') %>" class="item">
+			<img src="<%= mydata[item] %>" height=100 />
+		</div>
+	<% } %>
+		<div style="clear:both"></div>
 	</div>
-<% } %>
 </div>
