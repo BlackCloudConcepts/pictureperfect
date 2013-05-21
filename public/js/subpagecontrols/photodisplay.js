@@ -46,6 +46,7 @@ underpin.subpagecontrols.photodisplay = $.klass(underpin.subpagecontrols.base, {
 		var navleft = undefined;
 		var navright = undefined;
 		$('<img>', {'src' : path, 'width' : '600'}).appendTo(bigdisplay);
+		
 		// person
 		var arrPeopleSegment = path.split('/');
 		var arrPeople = arrPeopleSegment[arrPeopleSegment.length-1].split('-')[2].split('_');
@@ -58,15 +59,18 @@ underpin.subpagecontrols.photodisplay = $.klass(underpin.subpagecontrols.base, {
 		});
 		strPeople = strPeople.substring(0, strPeople.length-2);
 		var dvPerson = $('<div>', {'class' : 'person'}).html(strPeople).appendTo(this.container);
+		
 		// event
 		var arrEventSegment = path.split('/');
-                var arrEvent = arrEventSegment[arrEventSegment.length-1].split('-')[0];
+                var theEvent = arrEventSegment[arrEventSegment.length-1].split('-')[0];
 		var strEvent = '';
 		$.each(eventData, function(k,v){
-			if (v.value == arrEvent)
+			if (v.value == theEvent)
 				strEvent += v.name;
 		});
+		strEvent = this.monthLookup(theEvent.substring(4,6))+' '+theEvent.substring(0,4)+' '+strEvent
                 var dvEvent = $('<div>', {'class' : 'event'}).html(strEvent).appendTo(this.container);
+		
 		// previous
 		if (this.data[0] != path){
 			navleft = $('<div>', {'class' : 'arrowleft'}).appendTo(this.container).bind('click', function(){
@@ -83,6 +87,7 @@ underpin.subpagecontrols.photodisplay = $.klass(underpin.subpagecontrols.base, {
 				_this.renderBigDisplay(cleanValue, value, key-1);
 			});
 		}
+		
 		// next
 		if (this.data[this.data.length-1] != path){
 			navright = $('<div>', {'class' : 'arrowright'}).appendTo(this.container).bind('click', function(){
@@ -99,6 +104,8 @@ underpin.subpagecontrols.photodisplay = $.klass(underpin.subpagecontrols.base, {
 				_this.renderBigDisplay(cleanValue, value, key+1);
 			});
 		}
+		
+		// clear all	
 		blackout.bind('click', function(){
 			blackout.remove();
 			bigdisplay.remove();

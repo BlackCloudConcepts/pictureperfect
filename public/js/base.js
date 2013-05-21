@@ -72,7 +72,33 @@ underpin.base = $.klass({
 
 		$('head').append('<script id="'+ templateName + '" type="text/template">' + tmpl_string + '<\/script>');
 	    }
-	}
+	},
 
+	monthLookup : function(num){
+		if (num == '01')
+			return 'January';
+		else if (num == '02')
+			return 'February';
+		else if (num == '03')
+			return 'March';
+		else if (num == '04')
+			return 'April';
+		else if (num == '05')
+			return 'May';
+		else if (num == '06')
+			return 'June';
+		else if (num == '07')
+			return 'July';
+		else if (num == '08')
+			return 'August';
+		else if (num == '09')
+			return 'September';
+		else if (num == '10')
+			return 'October';
+		else if (num == '11')
+			return 'November';
+		else if (num == '12')
+			return 'December';
+	}
 
 });

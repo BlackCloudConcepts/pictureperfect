@@ -75,9 +75,18 @@ underpin.pagecontrols.foldernavigation = $.klass(underpin.pagecontrols.base, {
 			}	
 		});
 
+		var arrEvent = [];
+		$.each(eventData, function(key, value){
+			var hash = {
+				'name' : _this.monthLookup(value.value.substring(4,6))+' '+value.value.substring(0,4)+' '+value.name,
+				'value' : value.value,
+				'image' : value.image
+			};
+			arrEvent.push(hash);
+		});
 		this.ctrlDropdownEvents = new titan.controls.dropdown({
 			'container'	: dvSearchEvents,
-			'data'		: eventData,
+			'data'		: arrEvent,
 			'placeholder'	: 'Select Event',
 			'width'		: 300,
 			'onchange'	: function(item){
