@@ -99,6 +99,8 @@ underpin.base = $.klass({
 			return 'November';
 		else if (num == '12')
 			return 'December';
+		else
+			return '';
 	}
 
 });
