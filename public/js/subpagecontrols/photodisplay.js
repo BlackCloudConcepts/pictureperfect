@@ -32,7 +32,7 @@ underpin.subpagecontrols.photodisplay = $.klass(underpin.subpagecontrols.base, {
                 this.container.html(template);
 
 		$.each(data, function(key, value){			
-			var cleanValue = value.replace(/\//g, '').replace(/.jpg/g, '').replace(/-/g, '').replace(/.png/g, '');
+			var cleanValue = value.replace(/\//g, '').replace(/.jpg/g, '').replace(/.JPG/g, '').replace(/-/g, '').replace(/.png/g, '').replace(/.PNG/g, '');
 			$('#'+cleanValue).bind('click', function(){
 				_this.renderBigDisplay(cleanValue, value, key);
 			});
