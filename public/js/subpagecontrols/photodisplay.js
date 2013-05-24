@@ -83,7 +83,7 @@ underpin.subpagecontrols.photodisplay = $.klass(underpin.subpagecontrols.base, {
 				if (navright != undefined)
 					navright.remove();
 				var value = _this.data[key-1];
-				var cleanValue = value.replace(/\//g, '').replace(/.jpg/g, '').replace(/-/g, '').replace(/.png/g, '');
+				var cleanValue = value.replace(/\//g, '').replace(/.jpg/g, '').replace(/.JPG/g, '').replace(/-/g, '').replace(/.png/g, '').replace(/.PNG/g, '');
 				_this.renderBigDisplay(cleanValue, value, key-1);
 			});
 		}
@@ -100,7 +100,7 @@ underpin.subpagecontrols.photodisplay = $.klass(underpin.subpagecontrols.base, {
 				if (navright != undefined)
 					navright.remove();
 				var value = _this.data[key+1];
-				var cleanValue = value.replace(/\//g, '').replace(/.jpg/g, '').replace(/-/g, '').replace(/.png/g, '');
+				var cleanValue = value.replace(/\//g, '').replace(/.jpg/g, '').replace(/.JPG/g, '').replace(/-/g, '').replace(/.png/g, '').replace(/.PNG/g, '');
 				_this.renderBigDisplay(cleanValue, value, key+1);
 			});
 		}
