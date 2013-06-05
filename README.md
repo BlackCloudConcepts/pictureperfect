@@ -27,3 +27,12 @@ Level 3
 
 Note:
 Until a better solution arises, you need to run the pictureperfect-webserver.js node from its directory.  Running it from somewhere else will result in a 404 error.
+
+Renaming Script
+In the root directory there is a rename.js file and an example directory renameexample containing some test images.  The script provides a way to rename all the images in the specified folder automatically based on a file name with sequential numbering.  You could then just go through and update sections 3 and 4 containing peoples initials and any extra description.
+
+To run script with parameters ...
+node rename.js FULLPATHTOFOLDER FOLDERNAME
+
+For example ...
+node rename.js /srv/pictureperfect/public_html/pictureperfect/renameexample 201303WOW
