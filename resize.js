@@ -8,9 +8,23 @@ var exec = require('child_process').exec;
 var fs = require("fs");
 
 fs.readdir(path, function(err, files){
+	var count = 0;
 	for (var f in files){
+		// adjust the path to imagemagick installation as needed
 		var cmd = "/usr/bin/convert "+path+"/"+files[f]+" -resize '"+size+"' "+path+"/"+files[f];
-		exec(cmd, function(error, stdout, stderr){ 
-		});
+
+		var runme = function(cmd){ run(cmd); };
+		// adjust the time to wait before the next call based on what your server is setup to handle. 
+		// alternatively ... adapt this to wait until the previous command is complete and in the callback exec the next command
+
+		setTimeout(runme, count*3000, cmd);
+
+		count++;
 	}
 });
+
+function run(cmd){
+	console.log(cmd);
+	exec(cmd, function(error, stdout, stderr){ 
+	});
+}
