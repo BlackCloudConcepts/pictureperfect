@@ -39,6 +39,9 @@ For example ...
 
 Resizing Script
 - In the root directory there is a resize.js file and an example directory renameexample containing some test images.  The script provides a way to resize all the images in the specified folder automatically to a uniform width based a param passed into the call.
+- ImageMagick is used to perform the resizing.  http://www.imagemagick.org
+- To install ... yum install ImageMagick-devel.x86_64
+- You can also install from source http://www.imagemagick.org/script/install-source.php#unix, however you then need to deal with the delegates which are supported.  Out of the box jpg and png are not supported.  You would need to find the delegate libraries http://www.imagemagick.org/download/delegates/ and install the appropriate ones first.  You can check the delegates with convert -list configure.
 
 To run script with parameters ...
 - node resize.js FULLPATHTOFOLDER SIZE
