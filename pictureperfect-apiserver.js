@@ -163,7 +163,13 @@ function returnFileSearch(response, query, path, type){
 								if (sFiles[sFiles.length-1].toLowerCase().split('-')[0].indexOf(query.str.toLowerCase()) != -1)
 									searchFiles.push(level2files[l2f]);
 							} else if (type == 'both'){
-								if (sFiles[sFiles.length-1].toLowerCase().split('-')[2].indexOf(query.str.toLowerCase()) != -1 || sFiles[sFiles.length-1].toLowerCase().split('-')[0].indexOf(query.str.toLowerCase()) != -1)
+								var valid = true;
+								var arrVals = query.str.toLowerCase().split(' ');
+								for (var i = 0; i < arrVals.length; i++){
+									if (sFiles[sFiles.length-1].toLowerCase().split('-')[2].indexOf(arrVals[i]) == -1 && sFiles[sFiles.length-1].toLowerCase().split('-')[0].indexOf(arrVals[i]) == -1)
+										valid = false;
+								}
+								if (valid)
                                                                         searchFiles.push(level2files[l2f]);
 							}
 						}
