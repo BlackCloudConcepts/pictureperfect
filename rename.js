@@ -9,7 +9,7 @@ fs.readdir(path, function(err, files){
 	for (var f in files){
 		var arrExtension = files[f].split('.');
 		var fileSequenceDisplay = ('000' + fileSequence).substr(-3)
-		fs.renameSync(path+"/"+files[f], path+"/"+foldername+"-"+fileSequenceDisplay+"--."+arrExtension[1]);
+		fs.renameSync(path+"/"+files[f], path+"/"+foldername+"-"+fileSequenceDisplay+"--."+arrExtension[arrExtension.length-1]);
 		fileSequence++;
 	}
 });
